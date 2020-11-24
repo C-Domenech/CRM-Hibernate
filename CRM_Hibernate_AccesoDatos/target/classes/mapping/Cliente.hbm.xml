@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="models.Cliente" table="cliente">
+        <id column="id_cliente" name="id_cliente" type="integer" >
+            <generator class="identity"/>
+        </id>
+        <property name="nombre" type="string"/>
+        <property name="apellidos" type="string"/>
+        <property name="empresa" type="string"/>
+        <property name="telefono" type="string"/>
+        <property name="email" type="string" unique="true"/>
+        
+        <set table="oportunidad" name="oportunidades"  inverse="false">
+            <key>
+                <column name="id_cliente"></column>
+            </key>      
+            <one-to-many class="models.Oportunidad"></one-to-many>    
+        </set>
+        
+    </class>
+</hibernate-mapping>
+
