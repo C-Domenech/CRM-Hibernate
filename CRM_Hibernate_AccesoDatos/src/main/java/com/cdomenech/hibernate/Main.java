@@ -242,6 +242,7 @@ public class Main {
                                     String answer = sc.nextLine();
                                     if (answer.equalsIgnoreCase("s")) {
                                         cliente.newBasicCliente(emailCliente);
+                                        idCliente = cliente.checkEmailClienteExists(emailCliente);
                                     } else {
                                         System.out.println("No se ha creado un nuevo cliente.");
                                         break;
